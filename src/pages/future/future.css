@@ -1,0 +1,167 @@
+.trading-container {
+    padding: var(--spacing-6);
+    background-color: var(--color-gray-50);
+    min-height: 100vh;
+  }
+  
+  .segment-selector {
+    display: flex;
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-6);
+  }
+  
+  .segment-button {
+    padding: var(--spacing-3) var(--spacing-6);
+    border: 1px solid var(--color-primary-500);
+    border-radius: var(--radius-md);
+    background: none;
+    color: var(--color-primary-500);
+    cursor: pointer;
+  }
+  
+  .segment-button.active {
+    background-color: var(--color-primary-500);
+    color: white;
+  }
+  
+  .glass-card {
+    background: var(--glass-background);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--glass-shadow);
+    padding: var(--spacing-6);
+    margin-bottom: var(--spacing-8);
+  }
+  
+  .form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-4);
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+  }
+  
+  .form-group label {
+    font-size: var(--text-sm);
+    color: var(--color-gray-700);
+    font-weight: 500;
+  }
+  
+  .form-group select,
+  .form-group input {
+    padding: var(--spacing-2);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-md);
+    background-color: white;
+    height: 38px;
+  }
+  
+  .button-group {
+    display: flex;
+    gap: var(--spacing-2);
+  }
+  
+  .button-group button {
+    flex: 1;
+    padding: var(--spacing-2);
+    border: 1px solid var(--color-primary-200);
+    border-radius: var(--radius-md);
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .button-group button.active {
+    background-color: var(--color-primary-500);
+    color: white;
+    border-color: var(--color-primary-500);
+  }
+  
+  .add-button {
+    margin-top: var(--spacing-6);
+    padding: var(--spacing-2) var(--spacing-6);
+    background-color: var(--color-primary-500);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .add-button:hover {
+    background-color: var(--color-primary-600);
+  }
+  
+  .positions-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--spacing-4);
+  }
+  
+  .positions-table th,
+  .positions-table td {
+    padding: var(--spacing-2) var(--spacing-4);
+    text-align: left;
+    border-bottom: 1px solid var(--color-gray-200);
+  }
+  
+  .positions-table th {
+    font-weight: 600;
+    color: var(--color-gray-700);
+  }
+  
+  .position-type {
+    padding: var(--spacing-1) var(--spacing-2);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: 500;
+  }
+  
+  .position-type.buy {
+    background-color: var(--color-chart-green);
+    color: white;
+  }
+  
+  .position-type.sell {
+    background-color: var(--color-chart-red);
+    color: white;
+  }
+  
+  .delete-button {
+    color: var(--color-error);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  
+  .delete-button:hover {
+    color: var(--color-accent-rose);
+  }
+  
+  .backtest-section {
+    display: flex;
+    gap: var(--spacing-4);
+    align-items: flex-end;
+  }
+  
+  .date-inputs {
+    display: flex;
+    gap: var(--spacing-4);
+    flex: 1;
+  }
+  
+  .backtest-button {
+    padding: var(--spacing-2) var(--spacing-6);
+    background-color: var(--color-primary-600);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    height: 38px;
+  }

@@ -1,0 +1,155 @@
+:root {
+    /* Modern Color Palette */
+    --color-primary-50: #eef2ff;  /* Lighter indigo */
+    --color-primary-100: #e0e7ff;
+    --color-primary-200: #c7d2fe;
+    --color-primary-300: #a5b4fc;
+    --color-primary-400: #818cf8;
+    --color-primary-500: #6366f1;  /* Main indigo */
+    --color-primary-600: #4f46e5;
+    --color-primary-700: #4338ca;
+    --color-primary-800: #3730a3;
+    --color-primary-900: #312e81;
+  
+    /* Modern Gray Scale - More neutral and balanced */
+    --color-gray-50: #fafafa;
+    --color-gray-100: #f4f4f5;
+    --color-gray-200: #e4e4e7;
+    --color-gray-300: #d4d4d8;
+    --color-gray-400: #a1a1aa;
+    --color-gray-500: #71717a;
+    --color-gray-600: #52525b;
+    --color-gray-700: #3f3f46;
+    --color-gray-800: #27272a;
+    --color-gray-900: #18181b;
+  
+    /* Modern Status Colors */
+    --color-success: #22c55e;  /* Vibrant green */
+    --color-error: #ef4444;    /* Bright red */
+    --color-warning: #eab308;  /* Golden yellow */
+  
+    /* Additional Accent Colors */
+    --color-accent-purple: #a855f7;
+    --color-accent-teal: #14b8a6;
+    --color-accent-rose: #f43f5e;
+  
+    /* Chart Colors */
+    --color-chart-green: #22c55e;
+    --color-chart-red: #ef4444;
+    --color-chart-blue: #3b82f6;
+    --color-chart-yellow: #eab308;
+    --color-chart-purple: #a855f7;
+  
+    /* Typography */
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-secondary: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+    /* Font Sizes - Slightly adjusted for better readability */
+    --text-xs: 0.75rem;    /* 12px */
+    --text-sm: 0.875rem;   /* 14px */
+    --text-base: 1rem;     /* 16px */
+    --text-lg: 1.125rem;   /* 18px */
+    --text-xl: 1.25rem;    /* 20px */
+    --text-2xl: 1.5rem;    /* 24px */
+    --text-3xl: 2rem;      /* 32px */
+    --text-4xl: 2.5rem;    /* 40px */
+  
+    /* Spacing - Kept the same */
+    --spacing-1: 0.25rem;
+    --spacing-2: 0.5rem;
+    --spacing-3: 0.75rem;
+    --spacing-4: 1rem;
+    --spacing-6: 1.5rem;
+    --spacing-8: 2rem;
+    --spacing-12: 3rem;
+    --spacing-16: 4rem;
+  
+    /* Modern Border Radius */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-2xl: 1.5rem;
+    --radius-full: 9999px;
+  
+    /* Modern Shadows with softer edges */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.03);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.07);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.07);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.05);
+    
+    /* Glass Effect */
+    --glass-background: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  }
+  
+  /* Base styles remain the same */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: var(--font-primary);
+    color: var(--color-gray-900);
+    line-height: 1.5;
+    background-color: var(--color-gray-50);
+  }
+  
+  /* Typography Styles - Updated with new font */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  
+  h1 {
+    font-size: var(--text-4xl);
+    background: linear-gradient(to right, var(--color-primary-600), var(--color-primary-500));
+    background-clip: text; /* Added standard property */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  /* Modern Button Styles */
+  .button-base {
+    padding: var(--spacing-3) var(--spacing-6);
+    border-radius: var(--radius-lg);
+    font-weight: 500;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  
+  .primary-button {
+    background: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-600));
+    color: white;
+    border: none;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .primary-button:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .secondary-button {
+    background: var(--glass-background);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+    color: var(--color-primary-600);
+  }
+  
+  .secondary-button:hover {
+    background: var(--color-primary-50);
+    transform: translateY(-1px);
+  }
+  
+  /* Glass Card Effect */
+  .glass-card {
+    background: var(--glass-background);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+  }

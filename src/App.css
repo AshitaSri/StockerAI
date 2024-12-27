@@ -1,0 +1,8 @@
+.app {
+  min-height: 100vh;
+}
+
+.main-content {
+  padding-top: 80px; /* Height of navbar plus some spacing */
+  padding: 80px 2rem 2rem 2rem;
+}
