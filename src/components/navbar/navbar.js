@@ -14,7 +14,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="nav-brand">
         <Link to="/" className="nav-logo">
-          TradingApp
+          StockerAI
         </Link>
       </div>
 

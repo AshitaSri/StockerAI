@@ -9,6 +9,7 @@ const Chatbot = () => {
   ]);
   const [inputMessage, setInputMessage] = useState('');
   const [isMinimized, setIsMinimized] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
@@ -19,21 +20,47 @@ const Chatbot = () => {
     scrollToBottom();
   }, [messages]);
 
+  const BACKEND_URL = 'https://stockerai-chatbot-backend.onrender.com';// render - https://stockerai-chatbot-backend.onrender.com
+                                               // local -  http://localhost:10000
+
   const handleSend = async () => {
-    if (!inputMessage.trim()) return;
+    if (!inputMessage.trim() || isLoading) return;
 
     // Add user message
-    const newMessages = [...messages, { text: inputMessage, isBot: false }];
-    setMessages(newMessages);
+    const userMessage = { text: inputMessage, isBot: false };
+    setMessages(prev => [...prev, userMessage]);
     setInputMessage('');
+    setIsLoading(true);
 
-    // Simulate bot response (replace with actual API call)
-    setTimeout(() => {
-      setMessages([...newMessages, {
-        text: "Thanks for your message! I'm a demo chatbot. In the real app, I'll provide trading insights and answer your questions.",
+    try {
+      const response = await fetch(`${BACKEND_URL}/chat`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: inputMessage }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const data = await response.json();
+      
+      // Add bot response
+      setMessages(prev => [...prev, {
+        text: data.response,
         isBot: true
       }]);
-    }, 1000);
+    } catch (error) {
+      console.error('Error:', error);
+      setMessages(prev => [...prev, {
+        text: "Sorry, I'm having trouble connecting right now. Please try again later.",
+        isBot: true
+      }]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleKeyPress = (e) => {
@@ -83,6 +110,15 @@ const Chatbot = () => {
                 </div>
               </div>
             ))}
+            {isLoading && (
+              <div className="message bot">
+                <div className="message-content typing-indicator">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+            )}
             <div ref={messagesEndRef} />
           </div>
           
@@ -93,10 +129,12 @@ const Chatbot = () => {
               onKeyPress={handleKeyPress}
               placeholder="Type your message..."
               rows="1"
+              disabled={isLoading}
             />
             <button 
               onClick={handleSend}
-              className={inputMessage.trim() ? 'active' : ''}
+              className={`${inputMessage.trim() && !isLoading ? 'active' : ''}`}
+              disabled={isLoading}
             >
               <Send size={20} />
             </button>
